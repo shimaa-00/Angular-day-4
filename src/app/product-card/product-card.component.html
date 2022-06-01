@@ -1,0 +1,21 @@
+  <div class="card mb-3">
+    <div class="d-flex justify-content-center p-3">
+      <p class="lead mb-0">{{productData?.title|stringSlice:0:20}}</p>
+    </div>
+    <img src="{{productData?.image}}"
+      class="card-img-top "/>
+    <div class="card-body">
+       <p class="mb-0">{{productData?.description|stringSlice:0:30}}</p>
+      <div class="d-flex flex-row align-items-center mb-1">
+        <h4 class="mb-1 me-1">{{productData?.price|currency:'USD'}}</h4>
+        <h6 class="text-success">Free shipping</h6>
+      </div>
+
+      <div class="d-flex flex-column mt-4">
+        <button class="btn btn-primary btn-sm" type="button" [routerLink]="['/productdetails',productData?.id]">Add to Card</button>
+        <button class="btn btn-outline-primary btn-sm mt-2" (click)="addFavorite()" type="button" >
+          Add to Favorite
+        </button>
+      </div>
+    </div>
+  </div>

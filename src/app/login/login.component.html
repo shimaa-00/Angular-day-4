@@ -1,0 +1,15 @@
+<div class="container" style="min-height: 380px;">
+    <form #loginform="ngForm" (ngSubmit)="login(loginform.value)">
+        <label class="mx-3 fw-bold">Username</label> 
+        <input type="text" name="username" #username="ngModel" [(ngModel)]="user.username" required>
+        <div class="alert alert-danger my-2" [hidden]="username.valid || username.pristine">username required</div>
+        <br/><br/>
+        <label class="mx-3 fw-bold">Password</label> 
+        <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+        <div class="alert alert-danger my-2" [hidden]="password.valid || password.pristine">password required</div>
+        <input type="submit" value="Login" class="btn btn-primary d-block mx-auto my-4" style="width:150px;" [disabled]="loginform.invalid">
+    </form>
+    
+    <app-user [hidden]="res === undefined" [userData]="res"></app-user>
+    <div class="card my-3" style="width: 20rem; margin: auto; padding: 20px; text-align: center;" [hidden]="res !== undefined" >This user not found</div>
+</div>

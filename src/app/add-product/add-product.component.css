@@ -1,0 +1,13 @@
+form {
+    border: 1px solid black;
+    padding: 25px;
+    width: 560px;
+    text-align: center;
+    margin: auto;
+}
+
+form .btn{
+    display: block;
+    margin: auto;
+    width: 150px;
+}

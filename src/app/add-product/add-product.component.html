@@ -1,0 +1,31 @@
+<form [formGroup]="myform" class="col-3">
+    <div>
+      <label class="mx-3 fw-bold">Title</label>
+      <input type="text" style="margin-left: 55px;" formControlName="title">
+      <div class="alert alert-danger" [hidden]="title.valid || title.pristine">title required</div>
+    </div>
+    <br/>
+    <div>
+      <label class="mx-3 fw-bold">Description</label>
+      <input type="text" formControlName="description">
+      <div class="alert alert-danger" [hidden]="description.valid || description.pristine">description error</div>
+      <div class="alert alert-danger" *ngIf="description.errors?.['minlength']"> error minLength</div>
+    </div>
+    <br/>
+    <div>
+        <label class="mx-3 fw-bold">Image Url</label>
+        <input type="text" style="margin-left: 10px;" formControlName="image">
+        <div class="alert alert-danger" [hidden]="image.valid || image.pristine">image url required</div>
+    </div>
+    <br/>
+    <div>
+        <label class="mx-3 fw-bold">Price</label>
+        <input type="text" style="margin-left: 45px;" formControlName="price">
+        <div class="alert alert-danger" [hidden]="price.valid || price.pristine">price required</div>
+    </div>
+    <br/>
+    
+    <input type="button" class="btn btn-success" value="add" [disabled]="myform.invalid" (click)="add(myform.value)">
+  </form>
+
+  
